@@ -20,7 +20,7 @@ fun PostListScreen(viewModel: PostViewModel) {
 
     Scaffold(
         topBar = {
-            CenterAlignedTopAppBar(title = { Text("Ktor Posts") }, modifier = Modifier.systemBarsPadding())
+            CenterAlignedTopAppBar(title = { Text("Ktor Posts") }, modifier = Modifier.systemBarsPadding(),)
         }
     ) { padding ->
         Box(modifier = Modifier.fillMaxSize().padding(padding)) {
