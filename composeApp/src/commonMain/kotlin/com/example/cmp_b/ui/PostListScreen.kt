@@ -20,7 +20,10 @@ fun PostListScreen(viewModel: PostViewModel) {
 
     Scaffold(
         topBar = {
-            CenterAlignedTopAppBar(title = { Text("Ktor Posts") }, modifier = Modifier.systemBarsPadding())
+            CenterAlignedTopAppBar(
+                title = { Text("KMP Advance Architecture") },
+                modifier = Modifier.systemBarsPadding()
+            )
         }
     ) { padding ->
         Box(modifier = Modifier.fillMaxSize().padding(padding)) {
@@ -40,7 +43,11 @@ fun PostListScreen(viewModel: PostViewModel) {
                         modifier = Modifier.align(Alignment.Center),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        Text(text = result.message, color = MaterialTheme.colorScheme.error, modifier = Modifier.padding(16.dp))
+                        Text(
+                            text = result.message,
+                            color = MaterialTheme.colorScheme.error,
+                            modifier = Modifier.padding(16.dp)
+                        )
                         Button(onClick = { viewModel.fetchPosts() }) {
                             Text("Retry")
                         }
