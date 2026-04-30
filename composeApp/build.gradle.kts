@@ -23,7 +23,6 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
-            freeCompilerArgs += "-Xbinary=bundleId=com.example.cmpb"
         }
     }
     
@@ -54,6 +53,8 @@ kotlin {
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
+
+            implementation(libs.androidx.navigation.compose)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
