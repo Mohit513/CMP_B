@@ -5,6 +5,8 @@ import com.example.cmp_b.di.initKoin
 
 fun MainViewController() = ComposeUIViewController { App() }
 
-fun initKoinIos() {
-    initKoin()
+object KoinInitializer {
+    fun initialize() {
+        initKoin { }
+    }
 }
