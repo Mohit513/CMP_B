@@ -4,7 +4,7 @@ import com.example.cmp_b.shared.data.mapper.PostMapper
 import com.example.cmp_b.shared.data.repository.PostRepositoryImpl
 import com.example.cmp_b.shared.domain.repository.PostRepository
 import com.example.cmp_b.shared.domain.usecase.GetPostsUseCase
-import com.example.cmp_b.shared.presentation.viewmodel.PostListViewModel
+import com.example.cmp_b.ui.post_list.PostViewModel
 import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
@@ -22,7 +22,7 @@ val sharedModule = module {
     
     // ViewModels - Defined as factory in commonMain for cross-platform support.
     // On Android, you can use koinViewModel() in Compose to get these.
-    factoryOf(::PostListViewModel)
+    factoryOf(::PostViewModel)
 }
 
 

@@ -5,8 +5,6 @@ import org.koin.dsl.module
 val appModule = module {
     includes(
         coreModule,
-        sharedModule,
-        homeModule,
-        navigationModule
+        sharedModule
     )
 }

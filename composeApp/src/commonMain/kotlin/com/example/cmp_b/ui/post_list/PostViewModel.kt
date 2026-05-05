@@ -1,4 +1,4 @@
-package com.example.cmp_b.ui
+package com.example.cmp_b.ui.post_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
