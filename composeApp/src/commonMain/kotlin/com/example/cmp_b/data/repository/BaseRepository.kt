@@ -1,6 +1,6 @@
 package com.example.cmp_b.data.repository
 
-import com.example.cmp_b.util.NetworkResult
+import com.example.cmp_b.core.utils.NetworkResult
 import io.ktor.client.call.body
 import io.ktor.client.statement.HttpResponse
 import io.ktor.http.isSuccess

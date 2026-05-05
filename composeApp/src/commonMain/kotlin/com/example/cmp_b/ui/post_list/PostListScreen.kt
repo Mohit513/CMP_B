@@ -22,7 +22,6 @@ fun PostListScreen(viewModel: PostViewModel) {
         topBar = {
             CenterAlignedTopAppBar(
                 title = { Text("KMP Advance Architecture") },
-                modifier = Modifier.systemBarsPadding()
             )
         }
     ) { padding ->

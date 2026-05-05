@@ -6,3 +6,5 @@ import org.koin.dsl.module
 val androidPlatformModule = module {
     // Context is automatically provided by androidContext() in MainActivity
 }
+
+actual val platformModule = androidPlatformModule

@@ -1,5 +1,6 @@
 package com.example.cmp_b.core.network
 
+import com.example.cmp_b.core.network.ApiNames
 import com.example.cmp_b.core.network.model.PostDto
 import com.example.cmp_b.core.network.model.UserDto
 import com.example.cmp_b.core.network.model.CommentDto
