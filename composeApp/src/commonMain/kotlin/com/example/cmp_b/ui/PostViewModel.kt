@@ -2,9 +2,9 @@ package com.example.cmp_b.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.cmp_b.data.model.Post
-import com.example.cmp_b.data.repository.PostRepository
-import com.example.cmp_b.util.NetworkResult
+import com.example.cmp_b.shared.domain.model.Post
+import com.example.cmp_b.shared.domain.repository.PostRepository
+import com.example.cmp_b.core.utils.NetworkResult
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

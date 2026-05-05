@@ -10,8 +10,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.cmp_b.data.model.Post
-import com.example.cmp_b.util.NetworkResult
+import com.example.cmp_b.shared.domain.model.Post
+import com.example.cmp_b.core.utils.NetworkResult
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
