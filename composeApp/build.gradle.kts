@@ -31,6 +31,7 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.okhttp)
+            implementation(libs.koin.android)
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
@@ -44,9 +45,16 @@ kotlin {
             
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.client.logging)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.kotlinx.coroutines.core)
+
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+
+            implementation(libs.androidx.navigation.compose)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
@@ -86,4 +94,6 @@ android {
 
 dependencies {
     debugImplementation(libs.compose.uiTooling)
+    debugImplementation(libs.chucker.library)
+    releaseImplementation(libs.chucker.library.no.op)
 }
