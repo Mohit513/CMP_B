@@ -4,8 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.cmp_b.ui.post_list.PostListScreen
-import org.koin.compose.viewmodel.koinViewModel
+import com.example.cmp_b.ui.post_list.PostViewModel
+import org.koin.compose.currentKoinScope
 
 @Composable
 fun SetupNavGraph(
@@ -16,8 +18,9 @@ fun SetupNavGraph(
         startDestination = Route.PostList
     ) {
         composable<Route.PostList> {
+            val koinScope = currentKoinScope()
             PostListScreen(
-                viewModel = koinViewModel()
+                viewModel = viewModel { koinScope.get<PostViewModel>() }
             )
         }
 
