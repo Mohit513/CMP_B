@@ -4,7 +4,7 @@ import ComposeApp
 @main
 struct iOSApp: App {
     init() {
-        KoinInitializer().initialize()
+        DependencyInjection().initialize()
     }
 
     var body: some Scene {

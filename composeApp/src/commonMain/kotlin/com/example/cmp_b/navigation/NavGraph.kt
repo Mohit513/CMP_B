@@ -7,10 +7,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.cmp_b.ui.PostListScreen
-import com.example.cmp_b.ui.PostViewModel
 import com.example.cmp_b.ui.auth.LoginScreen
 import com.example.cmp_b.ui.auth.LoginViewModel
+import com.example.cmp_b.ui.post_list.PostListScreen
+import com.example.cmp_b.ui.post_list.PostViewModel
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable

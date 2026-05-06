@@ -31,30 +31,33 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.okhttp)
-            implementation(libs.koin.android)
+            
+            // Koin for Android
+            implementation("io.insert-koin:koin-android:4.2.1")
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
+            implementation(libs.compose.material.icons.extended)
             implementation(libs.compose.ui)
             implementation(libs.compose.components.resources)
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(libs.navigation.compose)
             
             implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.client.logging)
+            implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.kotlinx.coroutines.core)
-
-            implementation(libs.koin.core)
-            implementation(libs.koin.compose)
-            implementation(libs.koin.compose.viewmodel)
-
-            implementation(libs.androidx.navigation.compose)
+            
+            // Koin DI
+            implementation("io.insert-koin:koin-core:4.2.1")
+            implementation("io.insert-koin:koin-compose:4.2.1")
+            implementation("io.insert-koin:koin-compose-viewmodel:4.2.1")
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
