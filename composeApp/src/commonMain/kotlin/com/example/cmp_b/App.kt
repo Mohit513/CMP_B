@@ -2,16 +2,16 @@ package com.example.cmp_b
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.navigation.compose.rememberNavController
-import com.example.cmp_b.core.navigation.SetupNavGraph
+import com.example.cmp_b.navigation.NavGraph
+import com.example.cmp_b.navigation.rememberAppState
 import org.koin.compose.KoinContext
 
 @Composable
 fun App() {
     KoinContext {
         MaterialTheme {
-            val navController = rememberNavController()
-            SetupNavGraph(navController = navController)
+            val appState = rememberAppState()
+            NavGraph(appState = appState)
         }
     }
 }

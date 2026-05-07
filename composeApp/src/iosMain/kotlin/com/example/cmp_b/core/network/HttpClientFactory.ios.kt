@@ -10,6 +10,7 @@ import io.ktor.client.plugins.logging.DEFAULT
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.client.plugins.observer.ResponseObserver
 import io.ktor.client.plugins.defaultRequest
+import io.ktor.http.HttpHeaders
 
 actual object HttpClientFactory {
     actual fun create(): HttpClient {
@@ -17,14 +18,15 @@ actual object HttpClientFactory {
             install(ContentNegotiation) {
                 json(createJson())
             }
-            
+
             install(Logging) {
                 logger = Logger.DEFAULT
-                level = LogLevel.INFO
+                level = LogLevel.ALL
             }
 
             defaultRequest {
                 url(ApiNames.BASE_URL)
+                header(HttpHeaders.Accept, "application/json")
             }
 
             install(ResponseObserver) {

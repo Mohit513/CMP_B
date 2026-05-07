@@ -24,30 +24,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.cmp_b.ui.theme.Alto
+import com.example.cmp_b.ui.theme.BackgroundLight
+import com.example.cmp_b.ui.theme.DoveGray
+import com.example.cmp_b.ui.theme.MineShaft
+import com.example.cmp_b.ui.theme.Primary
+import com.example.cmp_b.ui.theme.Silver
+import com.example.cmp_b.ui.theme.SilverChalice
+import com.example.cmp_b.ui.theme.TextStyles
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
-
-// Mocking some colors and styles since they weren't provided in full
-val PrimaryColor = Color(0xFF004AAD)
-val BackgroundLight = Color.White
-val MineShaft = Color(0xFF333333)
-val Silver = Color(0xFFC0C0C0)
-val Alto = Color(0xFFD9D9D9)
-val Tundora = Color(0xFF4A4A4A)
-val GalleryColor = Color(0xFFEEEEEE)
-val DoveGray = Color(0xFF666666)
-val Bright_red = Color.Red
-val SilverChalice = Color(0xFFAAAAAA)
-
-object TextStyles {
-    val InterRegularS = androidx.compose.ui.text.TextStyle(fontSize = 14.sp)
-    val InterRegularXS = androidx.compose.ui.text.TextStyle(fontSize = 12.sp)
-    val InterSemiBoldXS = androidx.compose.ui.text.TextStyle(fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
-    val InterSemiBoldXL = androidx.compose.ui.text.TextStyle(fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
-    val InterSemiBoldXXL = androidx.compose.ui.text.TextStyle(fontSize = 26.sp, fontWeight = FontWeight.SemiBold)
-    val InterBoldS = androidx.compose.ui.text.TextStyle(fontSize = 14.sp, fontWeight = FontWeight.Bold)
-    val InterMediumXL = androidx.compose.ui.text.TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Medium)
-}
 
 @Composable
 fun AuthHeaderImage(
@@ -114,7 +100,7 @@ fun AppTextFieldWithLabel(
             shape = RoundedCornerShape(8.dp),
             modifier = Modifier.fillMaxWidth().height(56.dp),
             colors = OutlinedTextFieldDefaults.colors(
-                focusedBorderColor = PrimaryColor,
+                focusedBorderColor = Primary,
                 unfocusedBorderColor = Alto
             )
         )
@@ -149,13 +135,13 @@ fun AppOtpBoxes(
                                 .size(60.dp)
                                 .clip(RoundedCornerShape(10.dp))
                                 .background(Color.White)
-                                .border(1.dp, if (isFocused) PrimaryColor else Alto, RoundedCornerShape(10.dp)),
+                                .border(1.dp, if (isFocused) Primary else Alto, RoundedCornerShape(10.dp)),
                             contentAlignment = Alignment.Center
                         ) {
                             Text(
                                 text = char ?: "",
                                 style = TextStyles.InterMediumXL,
-                                color = if (isFocused) PrimaryColor else MineShaft
+                                color = if (isFocused) Primary else MineShaft
                             )
                         }
                     }
@@ -185,7 +171,7 @@ fun AppMultipleButtons(
             onClick = onSecondButtonClick,
             modifier = Modifier.weight(1f).height(50.dp),
             shape = RoundedCornerShape(8.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = PrimaryColor)
+            colors = ButtonDefaults.buttonColors(containerColor = Primary)
         ) {
             Text(secondButtonText)
         }
@@ -202,7 +188,7 @@ fun AppCustomButton(
         onClick = onFirstButtonClick,
         modifier = modifier.height(50.dp),
         shape = RoundedCornerShape(8.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = PrimaryColor)
+        colors = ButtonDefaults.buttonColors(containerColor = Primary)
     ) {
         Text(firstButtonText)
     }

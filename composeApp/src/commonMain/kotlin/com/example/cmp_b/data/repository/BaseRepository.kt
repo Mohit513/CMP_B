@@ -3,6 +3,7 @@ package com.example.cmp_b.data.repository
 import com.example.cmp_b.core.utils.NetworkResult
 import io.ktor.client.call.body
 import io.ktor.client.statement.HttpResponse
+import io.ktor.client.statement.bodyAsText
 import io.ktor.http.isSuccess
 
 abstract class BaseRepository {
@@ -12,7 +13,12 @@ abstract class BaseRepository {
             if (response.status.isSuccess()) {
                 NetworkResult.Success(response.body<T>())
             } else {
-                NetworkResult.Error("API Error: ${response.status.value} ${response.status.description}")
+                val errorBody = try { response.bodyAsText() } catch (_: Exception) { null }
+                val msg = buildString {
+                    append("API Error ${response.status.value}: ${response.status.description}")
+                    if (!errorBody.isNullOrBlank()) append(" | $errorBody")
+                }
+                NetworkResult.Error(msg)
             }
         } catch (e: Exception) {
             NetworkResult.Error(e.message ?: "Unknown Error", e)

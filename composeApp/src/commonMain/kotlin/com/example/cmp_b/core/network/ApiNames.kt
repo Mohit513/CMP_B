@@ -7,8 +7,8 @@ class ApiNames {
     companion object {
         
         // Base URLs
-        const val BASE_URL = "https://jsonplaceholder.typicode.com/" // for testing
-        // const val BASE_URL = "https://api.yourapp.com/" // for prod
+        // const val BASE_URL = "https://jsonplaceholder.typicode.com/" // for testing posts API
+        const val BASE_URL = "https://v5digitrackpaperlessonboarding.fmdigione.com/api/"
         
         // Posts API endpoints
         const val GET_POSTS = "posts"
@@ -16,6 +16,10 @@ class ApiNames {
         const val CREATE_POST = "posts"
         const val UPDATE_POST = "posts/{id}"
         const val DELETE_POST = "posts/{id}"
+
+        // Auth API endpoints
+        const val SEND_CANDIDATE_LOGIN_API = "TransferCandidateLogin"
+        const val SEND_OTP_VALIDATE = "LoginOTPValidate"
 
     }
 }

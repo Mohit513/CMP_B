@@ -4,6 +4,8 @@ import com.example.cmp_b.core.network.ApiNames
 import com.example.cmp_b.core.network.model.PostDto
 import com.example.cmp_b.core.network.model.UserDto
 import com.example.cmp_b.core.network.model.CommentDto
+import com.example.cmp_b.core.network.model.auth.CandidateLoginRequestDto
+import com.example.cmp_b.core.network.model.auth.LoginOtpValidateRequestDto
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.delete
@@ -12,6 +14,9 @@ import io.ktor.client.request.post
 import io.ktor.client.request.put
 import io.ktor.client.request.setBody
 import io.ktor.client.request.url
+import io.ktor.client.statement.HttpResponse
+import io.ktor.http.ContentType
+import io.ktor.http.contentType
 
 /**
  * Main API service interface following the pattern you requested
@@ -25,7 +30,11 @@ interface ApiService {
     suspend fun createPost(post: PostDto): PostDto
     suspend fun updatePost(id: Int, post: PostDto): PostDto
     suspend fun deletePost(id: Int)
-    
+
+    // Auth API methods
+    suspend fun callCandidateLoginApi(request: CandidateLoginRequestDto): HttpResponse
+    suspend fun callLoginOtpValidateApi(request: LoginOtpValidateRequestDto): HttpResponse
+
     // Users API methods
 }
 
@@ -49,6 +58,7 @@ class ApiServiceImpl(
     
     override suspend fun createPost(post: PostDto): PostDto {
         return httpClient.post(ApiNames.CREATE_POST) {
+            contentType(ContentType.Application.Json)
             setBody(post)
         }.body()
     }
@@ -56,6 +66,7 @@ class ApiServiceImpl(
     override suspend fun updatePost(id: Int, post: PostDto): PostDto {
         return httpClient.put {
             url(ApiNames.UPDATE_POST.replace("{id}", id.toString()))
+            contentType(ContentType.Application.Json)
             setBody(post)
         }.body()
     }
@@ -63,6 +74,20 @@ class ApiServiceImpl(
     override suspend fun deletePost(id: Int) {
         httpClient.delete {
             url(ApiNames.DELETE_POST.replace("{id}", id.toString()))
+        }
+    }
+
+    override suspend fun callCandidateLoginApi(request: CandidateLoginRequestDto): HttpResponse {
+        return httpClient.post(ApiNames.SEND_CANDIDATE_LOGIN_API) {
+            contentType(ContentType.Application.Json)
+            setBody(request)
+        }
+    }
+
+    override suspend fun callLoginOtpValidateApi(request: LoginOtpValidateRequestDto): HttpResponse {
+        return httpClient.post(ApiNames.SEND_OTP_VALIDATE) {
+            contentType(ContentType.Application.Json)
+            setBody(request)
         }
     }
 }

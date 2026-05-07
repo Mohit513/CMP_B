@@ -15,6 +15,8 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
 import android.content.Context
 import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.request.header
+import io.ktor.http.HttpHeaders
 
 actual object HttpClientFactory : KoinComponent {
     
@@ -35,11 +37,12 @@ actual object HttpClientFactory : KoinComponent {
             
             install(Logging) {
                 logger = Logger.DEFAULT
-                level = LogLevel.INFO
+                level = LogLevel.ALL
             }
             
             defaultRequest {
                 url(ApiNames.BASE_URL)
+                header(HttpHeaders.Accept, "application/json")
             }
         }
     }

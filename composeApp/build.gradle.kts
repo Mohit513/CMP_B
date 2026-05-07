@@ -31,7 +31,8 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.okhttp)
-            
+            implementation("org.jetbrains.kotlin:kotlin-reflect:${libs.versions.kotlin.get()}")
+
             // Koin for Android
             implementation("io.insert-koin:koin-android:4.2.1")
         }
@@ -58,6 +59,12 @@ kotlin {
             implementation("io.insert-koin:koin-core:4.2.1")
             implementation("io.insert-koin:koin-compose:4.2.1")
             implementation("io.insert-koin:koin-compose-viewmodel:4.2.1")
+
+            // Multiplatform Settings (KMP SharedPreferences / NSUserDefaults)
+            // Using no-arg variant so Settings() factory is available in commonMain
+            implementation("com.russhwolf:multiplatform-settings-no-arg:1.1.1")
+            implementation("com.russhwolf:multiplatform-settings-coroutines:1.1.1")
+            implementation("com.russhwolf:multiplatform-settings-serialization:1.1.1")
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
@@ -83,6 +90,9 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+    }
+    buildFeatures {
+        buildConfig = true
     }
     buildTypes {
         getByName("release") {

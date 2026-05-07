@@ -4,6 +4,19 @@ sealed class NavRoutes(val route: String) {
     object Login : NavRoutes("login")
     object DigiDashboard : NavRoutes("dashboard")
     object PostList : NavRoutes("post_list")
+
+    // Dashboard menu placeholder routes
+    object DigiOnBoarding : NavRoutes("digi_onboarding")
+    object ProfileScreen : NavRoutes("profile")
+    object MyLettersScreen : NavRoutes("my_letters")
+    object AttendanceScreen : NavRoutes("attendance")
+    object DummyScreen : NavRoutes("dummy")
+    object PayslipScreen : NavRoutes("payslip")
+    object PfListScreen : NavRoutes("pf_list")
+    object ReimbursementScreen : NavRoutes("reimbursement")
+    object DocumentDetailsScreen : NavRoutes("document_details")
+    object NotificationScreen : NavRoutes("notification")
+    object IdCardScreen : NavRoutes("id_card")
 }
 
 sealed class NavigationEvent {
