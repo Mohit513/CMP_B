@@ -52,6 +52,8 @@ val SilverShell = Color(0xFFBDBDBD)
 val Geyser = Color(0xFFE0E0E0)
 val Jaguar = Color(0xFF767676)
 val Alto_5 = Color(0xFFE0E0E0)
+val AliceBlue_25 = Color(0xFFF3FAFF)
+
 
 
 // Dashboard-specific colors
