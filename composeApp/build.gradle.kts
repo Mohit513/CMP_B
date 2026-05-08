@@ -65,6 +65,10 @@ kotlin {
             implementation("com.russhwolf:multiplatform-settings-no-arg:1.1.1")
             implementation("com.russhwolf:multiplatform-settings-coroutines:1.1.1")
             implementation("com.russhwolf:multiplatform-settings-serialization:1.1.1")
+
+            // Image loading (Coil 3 for KMP)
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network.ktor)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

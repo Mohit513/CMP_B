@@ -67,6 +67,8 @@ val CreamBrulle = Color(0xFFF5DEB3)
 val Havelock_blue = Color(0xFF4A90E2)
 val Piper = Color(0xFFB86A2B)
 val SeaSellPeach = Color(0xFFF5E6DC)
+val MineShaft_5 = Color(0xFF242424)
+val Your_pink = Color(0xFFFFC2C2)
 
 object AppGradients {
     fun lightPrimaryBackground(color: Color = Havelock_blue): androidx.compose.ui.graphics.Brush {

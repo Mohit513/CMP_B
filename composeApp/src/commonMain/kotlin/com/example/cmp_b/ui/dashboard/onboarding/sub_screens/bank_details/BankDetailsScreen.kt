@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import cmp_b.composeapp.generated.resources.Res
 import cmp_b.composeapp.generated.resources.ic_arrow_back
@@ -122,6 +123,7 @@ fun BankDetailsScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .background(AppGradients.lightPrimaryBackground())
                 .verticalScroll(scrollState)
         ) {
 
@@ -130,7 +132,6 @@ fun BankDetailsScreen(
             Column(
                 Modifier
                     .fillMaxWidth()
-                    .background(AppGradients.lightPrimaryBackground(Primary))
                     .padding(16.dp)
             ) {
 
@@ -256,6 +257,7 @@ fun BankDetailsScreen(
                 Text(
                     text = "Bank Details",
                     color = Color.White,
+                    textAlign = TextAlign.Center,
                     style = TextStyles.InterSemiBoldM
                 )
             }

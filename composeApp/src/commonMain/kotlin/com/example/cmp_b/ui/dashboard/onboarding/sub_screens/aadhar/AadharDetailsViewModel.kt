@@ -16,7 +16,6 @@ class AadharDetailsViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(AadharDetailsUiState())
     val uiState: StateFlow<AadharDetailsUiState> = _uiState
 
-    // snackbar events
     private val _uiEvent = Channel<String>()
     val uiEvent = _uiEvent.receiveAsFlow()
 

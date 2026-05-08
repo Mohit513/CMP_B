@@ -8,6 +8,7 @@ sealed class NavRoutes(val route: String) {
     // Dashboard menu placeholder routes
     object DigiOnBoarding : NavRoutes("digi_onboarding")
     object ProfileScreen : NavRoutes("profile")
+    object EditProfileScreen : NavRoutes("edit_profile")
     object MyLettersScreen : NavRoutes("my_letters")
     object AttendanceScreen : NavRoutes("attendance")
     object DummyScreen : NavRoutes("dummy")

@@ -271,11 +271,11 @@ fun AadharDetailsScreen(
                     isTodayMax = true,
 
                     onDateSelected = {
-
                         viewModel.onEvent(
                             AadharDetailsEvent.OnDobSelected(it)
                         )
-                    }
+                    },
+                    modifier = Modifier
                 )
 
                 Spacer(modifier = Modifier.height(20.dp))
@@ -302,7 +302,6 @@ fun AadharDetailsScreen(
 
                 Spacer(modifier = Modifier.height(20.dp))
 
-                // ---------------- Father/Husband ----------------
 
                 AppTextFieldWithLabel(
 
@@ -356,7 +355,6 @@ fun AadharDetailsScreen(
                     fileName = uiState.fileName,
 
                     fileSize = uiState.fileSize,
-
                     onUploadClick = {
 
                         showBottomSheet = true

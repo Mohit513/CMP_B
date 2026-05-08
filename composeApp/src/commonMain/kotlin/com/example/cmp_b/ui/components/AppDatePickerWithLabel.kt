@@ -15,5 +15,5 @@ expect fun AppDatePickerWithLabel(
     borderColor: Color = Silver,
     readOnly: Boolean = false,
     isTodayMax: Boolean = false,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 )

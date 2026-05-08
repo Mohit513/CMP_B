@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -17,6 +18,9 @@ import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.aadhar.AadharDetail
 import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.aadhar.AadharDetailsViewModel
 import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.bank_details.BankDetailsScreen
 import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.bank_details.BankDetailsViewModel
+import com.example.cmp_b.ui.dashboard.profile.EditProfileScreen
+import com.example.cmp_b.ui.dashboard.profile.ProfileScreen
+import com.example.cmp_b.ui.dashboard.profile.vm.ProfileViewModel
 import com.example.cmp_b.ui.post_list.PostListScreen
 import com.example.cmp_b.ui.post_list.PostViewModel
 import org.koin.compose.koinInject
@@ -35,7 +39,7 @@ fun NavGraph(appState: AppState) {
         snackbarHost = { SnackbarHost(appState.snackbarHostState) }
     ) { innerPadding ->
         NavHost(
-            navController = appState.navigator.navController,
+            navController = appState.navController,
             startDestination = startDestination,
             modifier = Modifier.padding(innerPadding)
         ) {
@@ -62,6 +66,29 @@ fun NavGraph(appState: AppState) {
                 val viewModel: BankDetailsViewModel = koinViewModel()
                 BankDetailsScreen(appState, viewModel)
             }
+            composable(NavRoutes.ProfileScreen.route) { backStackEntry ->
+
+                val profileViewModel: ProfileViewModel = koinViewModel()
+
+                ProfileScreen(
+                    appState = appState,
+                    profileViewModel = profileViewModel
+                )
+            }
+            composable(NavRoutes.EditProfileScreen.route) { backStackEntry ->
+
+                val parentEntry = remember(backStackEntry) {
+                    appState.navController.getBackStackEntry(NavRoutes.ProfileScreen.route)
+                }
+
+                val profileViewModel: ProfileViewModel = koinViewModel(viewModelStoreOwner = parentEntry)
+
+                EditProfileScreen(
+                    appState = appState,
+                    profileViewModel = profileViewModel
+                )
+            }
+
         }
     }
 }

@@ -119,7 +119,7 @@ fun DigiDashboardScreen(
             contentPadding = PaddingValues(top = 180.dp, bottom = 24.dp)
         ) {
             item {
-                AppImageContentSlider(modifier = Modifier.padding(top = 0.dp))
+                AppImageContentSlider(modifier = Modifier.padding(top = 8.dp))
                 Spacer(Modifier.height(12.dp))
                 CompleteProfileCard(onClick = {})
                 Spacer(Modifier.height(12.dp))
@@ -165,7 +165,7 @@ private fun CompleteProfileCard(onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 2.dp)
+            .padding(horizontal = 20.dp, vertical = 2.dp)
             .clickable { onClick() }
             .border(width = 1.dp, color = Piper, shape = RoundedCornerShape(12.dp)),
         shape = RoundedCornerShape(12.dp),

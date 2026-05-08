@@ -76,7 +76,7 @@ fun AppImageContentSlider(modifier: Modifier = Modifier) {
             state = pagerState,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(160.dp) // Match previous design height
+                .height(120.dp)
         ) { page ->
             Card(
                 shape = RoundedCornerShape(16.dp),

@@ -5,16 +5,17 @@ import io.ktor.client.engine.okhttp.OkHttpConfig
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import android.content.Context
 
-private var appContext: Context? = null
+private var _appContext: Context? = null
+internal val appContext: Context? get() = _appContext
 
 fun setAppContext(context: Context) {
-    appContext = context
+    _appContext = context
 }
 
 actual fun HttpClientConfig<*>.installInterceptor() {
     engine {
         if (this is OkHttpConfig) {
-            appContext?.let {
+            _appContext?.let {
                 addInterceptor(ChuckerInterceptor.Builder(it).build())
             }
         }

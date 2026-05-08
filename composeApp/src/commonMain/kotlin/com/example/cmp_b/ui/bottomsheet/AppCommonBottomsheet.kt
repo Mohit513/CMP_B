@@ -20,6 +20,7 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import cmp_b.composeapp.generated.resources.Res
@@ -169,7 +170,7 @@ private fun HorizontalSourceItem(
             Icon(
                 painter = painterResource(icon),
                 contentDescription = title,
-                tint = Primary,
+                tint = Color.Unspecified,
                 modifier = Modifier.size(28.dp)
             )
         }
