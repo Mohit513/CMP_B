@@ -17,6 +17,8 @@ sealed class NavRoutes(val route: String) {
     object DocumentDetailsScreen : NavRoutes("document_details")
     object NotificationScreen : NavRoutes("notification")
     object IdCardScreen : NavRoutes("id_card")
+    object AadhaarDetails : NavRoutes("aadhaar_details")
+    object BankDetails : NavRoutes("bank_details")
 }
 
 sealed class NavigationEvent {

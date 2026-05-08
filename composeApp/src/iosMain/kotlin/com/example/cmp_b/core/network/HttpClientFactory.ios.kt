@@ -1,5 +1,7 @@
 package com.example.cmp_b.core.network
 
+import com.example.cmp_b.core.data.network.remote.ApiNames
+import com.example.cmp_b.core.data.network.remote.createJson
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.darwin.Darwin
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation

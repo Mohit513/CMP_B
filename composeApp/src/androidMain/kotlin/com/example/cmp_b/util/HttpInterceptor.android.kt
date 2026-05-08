@@ -1,4 +1,4 @@
-package com.example.cmp_b.util
+package com.example.cmp_b.core.data.network.interceptors
 
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.engine.okhttp.OkHttpConfig

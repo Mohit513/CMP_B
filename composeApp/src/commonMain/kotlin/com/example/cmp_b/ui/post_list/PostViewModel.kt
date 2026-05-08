@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cmp_b.shared.domain.model.Post
 import com.example.cmp_b.shared.domain.repository.PostRepository
-import com.example.cmp_b.core.utils.NetworkResult
+import com.example.cmp_b.core.data.network.api.common.NetworkResult
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

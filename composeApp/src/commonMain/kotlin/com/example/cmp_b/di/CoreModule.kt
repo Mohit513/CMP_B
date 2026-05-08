@@ -1,9 +1,9 @@
 package com.example.cmp_b.di
 
 import com.example.cmp_b.PlatformInfo
-import com.example.cmp_b.core.network.ApiService
-import com.example.cmp_b.core.network.ApiServiceImpl
-import com.example.cmp_b.core.network.HttpClientFactory
+import com.example.cmp_b.core.data.network.remote.ApiService
+import com.example.cmp_b.core.data.network.remote.ApiServiceImpl
+import com.example.cmp_b.core.data.network.remote.HttpClientFactory
 import com.example.cmp_b.getPlatformInfo
 import io.ktor.client.HttpClient
 import org.koin.dsl.module

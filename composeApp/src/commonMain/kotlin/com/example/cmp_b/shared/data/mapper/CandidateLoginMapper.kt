@@ -1,8 +1,8 @@
 package com.example.cmp_b.shared.data.mapper
 
 import com.example.cmp_b.core.base.Mapper
-import com.example.cmp_b.core.network.model.auth.CandidateLoginResponseDto
-import com.example.cmp_b.core.network.model.auth.LoginOtpValidateResponseDto
+import com.example.cmp_b.core.data.network.auth.CandidateLoginResponseDto
+import com.example.cmp_b.core.data.network.auth.LoginOtpValidateResponseDto
 import com.example.cmp_b.shared.domain.model.auth.CandidateLoginUiModel
 import com.example.cmp_b.shared.domain.model.auth.LoginOtpValidateUiModel
 

@@ -1,7 +1,7 @@
 package com.example.cmp_b.shared.data.mapper
 
 import com.example.cmp_b.core.base.Mapper
-import com.example.cmp_b.core.network.model.PostDto
+import com.example.cmp_b.core.data.network.model.PostDto
 import com.example.cmp_b.core.utils.orDash
 import com.example.cmp_b.shared.domain.model.Post
 

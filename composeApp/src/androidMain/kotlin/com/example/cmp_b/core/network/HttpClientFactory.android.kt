@@ -1,7 +1,7 @@
-package com.example.cmp_b.core.network
+package com.example.cmp_b.core.data.network.remote
 
 import com.chuckerteam.chucker.api.ChuckerInterceptor
-import com.example.cmp_b.core.network.ApiNames
+import com.example.cmp_b.core.data.network.remote.ApiNames
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation

@@ -1,6 +1,6 @@
 package com.example.cmp_b.di
 
-import com.example.cmp_b.data.repository.AuthRepositoryImpl
+import com.example.cmp_b.core.data.repository.AuthRepositoryImpl
 import com.example.cmp_b.shared.data.mapper.CandidateLoginMapper
 import com.example.cmp_b.shared.data.mapper.LoginOtpValidateMapper
 import com.example.cmp_b.shared.data.mapper.PostMapper
@@ -10,9 +10,12 @@ import com.example.cmp_b.shared.domain.repository.PostRepository
 import com.example.cmp_b.shared.domain.usecase.CandidateLoginUseCase
 import com.example.cmp_b.shared.domain.usecase.GetPostsUseCase
 import com.example.cmp_b.shared.domain.usecase.LoginOtpValidateUseCase
-import com.example.cmp_b.core.session.SessionManager
+import com.example.cmp_b.core.data.session.SessionManager
 import com.example.cmp_b.ui.auth.LoginViewModel
 import com.example.cmp_b.ui.dashboard.DashboardViewModel
+import com.example.cmp_b.ui.dashboard.onboarding.DigiOnboardingViewModel
+import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.aadhar.AadharDetailsViewModel
+import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.bank_details.BankDetailsViewModel
 import com.example.cmp_b.ui.post_list.PostViewModel
 import com.russhwolf.settings.*
 import org.koin.core.module.dsl.factoryOf
@@ -45,6 +48,9 @@ val sharedModule = module {
     factoryOf(::PostViewModel)
     factoryOf(::LoginViewModel)
     factoryOf(::DashboardViewModel)
+    factoryOf(::DigiOnboardingViewModel)
+    factoryOf(::AadharDetailsViewModel)
+    factoryOf(::BankDetailsViewModel)
 }
 
 

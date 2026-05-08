@@ -1,7 +1,7 @@
 package com.example.cmp_b.shared.data.repository
 
-import com.example.cmp_b.core.network.ApiService
-import com.example.cmp_b.core.utils.NetworkResult
+import com.example.cmp_b.core.data.network.remote.ApiService
+import com.example.cmp_b.core.data.network.api.common.NetworkResult
 import com.example.cmp_b.shared.data.mapper.PostMapper
 import com.example.cmp_b.shared.domain.model.Post
 import com.example.cmp_b.shared.domain.repository.PostRepository

@@ -3,10 +3,10 @@ package com.example.cmp_b.ui.auth
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cmp_b.PlatformInfo
-import com.example.cmp_b.core.network.model.auth.CandidateLoginRequestDto
-import com.example.cmp_b.core.network.model.auth.LoginOtpValidateRequestDto
-import com.example.cmp_b.core.session.SessionManager
-import com.example.cmp_b.core.utils.NetworkResult
+import com.example.cmp_b.core.data.network.auth.CandidateLoginRequestDto
+import com.example.cmp_b.core.data.network.auth.LoginOtpValidateRequestDto
+import com.example.cmp_b.core.data.session.SessionManager
+import com.example.cmp_b.core.data.network.api.common.NetworkResult
 import com.example.cmp_b.navigation.NavRoutes
 import com.example.cmp_b.navigation.NavigationEvent
 import com.example.cmp_b.shared.domain.model.auth.CandidateLoginUiModel

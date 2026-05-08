@@ -1,6 +1,6 @@
 package com.example.cmp_b.shared.domain.usecase
 
-import com.example.cmp_b.core.utils.NetworkResult
+import com.example.cmp_b.core.data.network.api.common.NetworkResult
 import com.example.cmp_b.shared.domain.model.Post
 import com.example.cmp_b.shared.domain.repository.PostRepository
 import kotlinx.coroutines.flow.Flow

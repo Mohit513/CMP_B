@@ -2,7 +2,7 @@ package com.example.cmp_b
 
 import android.app.Application
 import com.example.cmp_b.di.initKoin
-import com.example.cmp_b.util.setAppContext
+import com.example.cmp_b.core.data.network.interceptors.setAppContext
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 

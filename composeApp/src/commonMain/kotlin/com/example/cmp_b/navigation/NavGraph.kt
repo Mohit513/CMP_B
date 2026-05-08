@@ -7,11 +7,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.cmp_b.core.session.SessionManager
+import com.example.cmp_b.core.data.session.SessionManager
 import com.example.cmp_b.ui.auth.LoginScreen
 import com.example.cmp_b.ui.auth.LoginViewModel
 import com.example.cmp_b.ui.dashboard.DashboardViewModel
 import com.example.cmp_b.ui.dashboard.DigiDashboardScreen
+import com.example.cmp_b.ui.dashboard.onboarding.DigiOnboardingScreen
+import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.aadhar.AadharDetailsScreen
+import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.aadhar.AadharDetailsViewModel
+import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.bank_details.BankDetailsScreen
+import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.bank_details.BankDetailsViewModel
 import com.example.cmp_b.ui.post_list.PostListScreen
 import com.example.cmp_b.ui.post_list.PostViewModel
 import org.koin.compose.koinInject
@@ -45,6 +50,17 @@ fun NavGraph(appState: AppState) {
             composable(NavRoutes.DigiDashboard.route) {
                 val viewModel: DashboardViewModel = koinViewModel()
                 DigiDashboardScreen(appState, viewModel)
+            }
+            composable(NavRoutes.DigiOnBoarding.route) {
+                DigiOnboardingScreen(appState)
+            }
+            composable(NavRoutes.AadhaarDetails.route) {
+                val viewModel: AadharDetailsViewModel = koinViewModel()
+                AadharDetailsScreen(appState, viewModel)
+            }
+            composable(NavRoutes.BankDetails.route) {
+                val viewModel: BankDetailsViewModel = koinViewModel()
+                BankDetailsScreen(appState, viewModel)
             }
         }
     }

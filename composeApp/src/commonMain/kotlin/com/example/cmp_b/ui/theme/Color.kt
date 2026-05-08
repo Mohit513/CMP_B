@@ -53,6 +53,10 @@ val Geyser = Color(0xFFE0E0E0)
 val Jaguar = Color(0xFF767676)
 val Alto_5 = Color(0xFFE0E0E0)
 val AliceBlue_25 = Color(0xFFF3FAFF)
+val Azure = Color(0xFF3454AC)
+val Mercury = Color(0xFFE2E2E2)
+val Zumthor = Color(0xFFE9F3FF)
+
 
 
 
@@ -65,9 +69,9 @@ val Piper = Color(0xFFB86A2B)
 val SeaSellPeach = Color(0xFFF5E6DC)
 
 object AppGradients {
-    fun lightPrimaryBackground(color: Color): androidx.compose.ui.graphics.Brush {
+    fun lightPrimaryBackground(color: Color = Havelock_blue): androidx.compose.ui.graphics.Brush {
         return androidx.compose.ui.graphics.Brush.verticalGradient(
-            colors = listOf(color.copy(alpha = 0.12f), Color.White)
+            colors = listOf( Color.White,color.copy(alpha = 0.03f),)
         )
     }
 }
