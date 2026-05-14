@@ -13,6 +13,7 @@ import com.example.cmp_b.shared.domain.usecase.LoginOtpValidateUseCase
 import com.example.cmp_b.core.data.session.SessionManager
 import com.example.cmp_b.ui.auth.LoginViewModel
 import com.example.cmp_b.ui.dashboard.DashboardViewModel
+import com.example.cmp_b.ui.dashboard.letter.vm.MyLetterViewModel
 import com.example.cmp_b.ui.dashboard.onboarding.DigiOnboardingViewModel
 import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.aadhar.AadharDetailsViewModel
 import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.bank_details.BankDetailsViewModel
@@ -53,6 +54,10 @@ val sharedModule = module {
     factoryOf(::AadharDetailsViewModel)
     factoryOf(::BankDetailsViewModel)
     factoryOf(::ProfileViewModel)
+
+    //my letter screen view models
+    factoryOf(::MyLetterViewModel)
+
 }
 
 

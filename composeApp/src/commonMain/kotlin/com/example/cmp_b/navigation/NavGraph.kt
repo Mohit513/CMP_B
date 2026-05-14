@@ -13,16 +13,20 @@ import com.example.cmp_b.ui.auth.LoginScreen
 import com.example.cmp_b.ui.auth.LoginViewModel
 import com.example.cmp_b.ui.dashboard.DashboardViewModel
 import com.example.cmp_b.ui.dashboard.DigiDashboardScreen
+import com.example.cmp_b.ui.dashboard.letter.vm.MyLetterViewModel
 import com.example.cmp_b.ui.dashboard.onboarding.DigiOnboardingScreen
 import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.aadhar.AadharDetailsScreen
 import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.aadhar.AadharDetailsViewModel
 import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.bank_details.BankDetailsScreen
 import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.bank_details.BankDetailsViewModel
+import com.example.cmp_b.ui.dashboard.payslip.PayslipScreen
+import com.example.cmp_b.ui.dashboard.payslip.vm.PayslipViewModel
 import com.example.cmp_b.ui.dashboard.profile.EditProfileScreen
 import com.example.cmp_b.ui.dashboard.profile.ProfileScreen
 import com.example.cmp_b.ui.dashboard.profile.vm.ProfileViewModel
 import com.example.cmp_b.ui.post_list.PostListScreen
 import com.example.cmp_b.ui.post_list.PostViewModel
+import com.example.cmp_b.ui.dashboard.letter.MyLetterScreen
 import org.koin.compose.koinInject
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -32,7 +36,7 @@ fun NavGraph(appState: AppState) {
     val startDestination = if (sessionManager.isLoggedIn) {
         NavRoutes.DigiDashboard.route
     } else {
-        NavRoutes.Login.route
+        NavRoutes.DigiDashboard.route
     }
 
     Scaffold(
@@ -88,7 +92,14 @@ fun NavGraph(appState: AppState) {
                     profileViewModel = profileViewModel
                 )
             }
-
+            composable(NavRoutes.PayslipScreen.route){
+                val viewModel = PayslipViewModel()
+                PayslipScreen(appState, viewModel)
+            }
+            composable(NavRoutes.MyLettersScreen.route){
+                val viewModel = MyLetterViewModel()
+                MyLetterScreen(appState, viewModel)
+            }
         }
     }
 }

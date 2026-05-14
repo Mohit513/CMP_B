@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.implementation
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -69,6 +70,9 @@ kotlin {
             // Image loading (Coil 3 for KMP)
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor)
+
+            //signature pad
+            implementation("com.github.gcacace:signature-pad:1.3.1")
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

@@ -1,7 +1,5 @@
-package com.example.cmp_b.core.network
+package com.example.cmp_b.core.data.network.remote
 
-import com.example.cmp_b.core.data.network.remote.ApiNames
-import com.example.cmp_b.core.data.network.remote.createJson
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.darwin.Darwin
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -12,6 +10,7 @@ import io.ktor.client.plugins.logging.DEFAULT
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.client.plugins.observer.ResponseObserver
 import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.request.header
 import io.ktor.http.HttpHeaders
 
 actual object HttpClientFactory {

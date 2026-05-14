@@ -5,7 +5,6 @@ import androidx.compose.ui.graphics.Color
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)
-
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
@@ -57,9 +56,6 @@ val Azure = Color(0xFF3454AC)
 val Mercury = Color(0xFFE2E2E2)
 val Zumthor = Color(0xFFE9F3FF)
 
-
-
-
 // Dashboard-specific colors
 val Alabaster = Color(0xFFF8F8F8)
 val Congress_blue = Color(0xFF004AAD)
@@ -69,6 +65,42 @@ val Piper = Color(0xFFB86A2B)
 val SeaSellPeach = Color(0xFFF5E6DC)
 val MineShaft_5 = Color(0xFF242424)
 val Your_pink = Color(0xFFFFC2C2)
+
+val hotSinnamon = Color(0xFFD56B1B)
+val persianRed = Color(0xFFD32F2F)
+val DustyGray = Color(0xFF999999)
+
+val Cloud_Burst = Color(0xFF1C274C)
+val Gallery = Color(0xFFEDEDED)
+val Gallery_5 = Color(0xFFECECEC)
+val FrostedMint = Color(0xFFE4FFF3)
+val Pippin = Color(0xFFFFE4E4)
+val Pippin_15 = Color(0xFFFFE7E7)
+
+val FunGreen = Color(0xFF05603A)
+val OldBrick = Color(0xFF912018)
+val Melrose = Color(0xFF97ABFF)
+val ToriaBay = Color(0xFF123597)
+val Solitude = Color(0xFFE5F4FF)
+val Kaitoke_Green = Color(0xFF00552C)
+
+val Concrete = Color(0xFFF3F3F3)
+val AliceBLue = Color(0xFFEEF8FF)
+val Marzipan = Color(0xFFFAE69F)
+val HawkesBlue_15 = Color(0xFFF0F6FE)
+val Turquoise = Color(0xFF38D5BB)
+val Curious_blue_15 = Color(0xFF3898D5)
+val Cerenade = Color(0xFFFFF2E7)
+val HintOfGreen = Color(0xFFE8FFE7)
+val BrightRed = Color(0xFFB10F00)
+val FunGreen_50 = Color(0xFF008B3E)
+val IndoShine = Color(0xFFC96B00)
+val JapaneseLauren = Color(0xFF079100)
+val RedBerry = Color(0xFF910000)
+
+val MangoTango = Color(0xFFD88501)
+val WildSand = Color(0xFFF5F5F5)
+val Alice_blue_50 = Color(0xFFF2F8FF)
 
 object AppGradients {
     fun lightPrimaryBackground(color: Color = Havelock_blue): androidx.compose.ui.graphics.Brush {

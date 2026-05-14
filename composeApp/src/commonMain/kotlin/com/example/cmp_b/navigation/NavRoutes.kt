@@ -20,6 +20,13 @@ sealed class NavRoutes(val route: String) {
     object IdCardScreen : NavRoutes("id_card")
     object AadhaarDetails : NavRoutes("aadhaar_details")
     object BankDetails : NavRoutes("bank_details")
+
+    //my letter screen routes
+    object CandidateLoiScreen : NavRoutes("candidate_loi")
+    object OfferLetterScreen : NavRoutes("offer_letter")
+    object IncrementLetterScreen : NavRoutes("increment_letter")
+    object FormSixteenScreen : NavRoutes("form_16")
+    object OtherLetterScreen : NavRoutes("other_letter")
 }
 
 sealed class NavigationEvent {
