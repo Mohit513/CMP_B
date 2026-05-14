@@ -27,6 +27,7 @@ import com.example.cmp_b.ui.dashboard.profile.vm.ProfileViewModel
 import com.example.cmp_b.ui.post_list.PostListScreen
 import com.example.cmp_b.ui.post_list.PostViewModel
 import com.example.cmp_b.ui.dashboard.letter.MyLetterScreen
+import com.example.cmp_b.ui.dashboard.letter.feature.other_letter.vm.OtherLetterViewModel
 import org.koin.compose.koinInject
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -97,8 +98,16 @@ fun NavGraph(appState: AppState) {
                 PayslipScreen(appState, viewModel)
             }
             composable(NavRoutes.MyLettersScreen.route){
-                val viewModel = MyLetterViewModel()
+                val viewModel: MyLetterViewModel = koinViewModel()
                 MyLetterScreen(appState, viewModel)
+            }
+            composable(NavRoutes.OfferLetterScreen.route){
+                val viewModel: com.example.cmp_b.ui.dashboard.letter.feature.offer_letter.vm.OfferLetterViewModel = koinViewModel()
+                com.example.cmp_b.ui.dashboard.letter.feature.offer_letter.OfferLetterScreen(appState, viewModel)
+            }
+            composable(NavRoutes.OtherLetterScreen.route){
+                val viewModel: OtherLetterViewModel = koinViewModel()
+                com.example.cmp_b.ui.dashboard.letter.feature.other_letter.OtherLetterScreen(appState, viewModel)
             }
         }
     }

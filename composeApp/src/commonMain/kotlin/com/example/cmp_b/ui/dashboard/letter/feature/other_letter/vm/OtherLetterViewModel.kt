@@ -1,15 +1,12 @@
-package com.example.digi_trac_v5.ui.presentation.screens.dashboard.features.other_letter.vm
+package com.example.cmp_b.ui.dashboard.letter.feature.other_letter.vm
 
 import androidx.lifecycle.ViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import javax.inject.Inject
 
-@HiltViewModel
-class OtherLetterViewModel @Inject constructor() : ViewModel() {
+class OtherLetterViewModel(): ViewModel() {
 
     private val _letters = MutableStateFlow<List<OtherLetterUiState>>(emptyList())
 

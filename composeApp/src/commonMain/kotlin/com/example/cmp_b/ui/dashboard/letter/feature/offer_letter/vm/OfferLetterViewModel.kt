@@ -1,4 +1,4 @@
-package com.example.digi_trac_v5.ui.presentation.screens.dashboard.features.offer_letter.vm
+package com.example.cmp_b.ui.dashboard.letter.feature.offer_letter.vm
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

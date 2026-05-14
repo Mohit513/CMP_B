@@ -1,18 +1,10 @@
-package com.example.digi_trac_v5.util
+package com.example.cmp_b.util
 
-import android.app.DownloadManager
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
-import android.os.Environment
+
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.input.OffsetMapping
 import androidx.compose.ui.text.input.TransformedText
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.core.net.toUri
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 object AppUtils {
 
@@ -21,37 +13,13 @@ object AppUtils {
         const val DISPLAY_TIME = "h:mm a"
         const val API_TIME = "HH:mm:ss"
     }
-
-    /**Took from Jammer **/
-
-    fun downloadFile(
-        context: Context,
-        fileName: String,
-        url: String,
-    ) {
-        val request = DownloadManager.Request(url.toUri()).apply {
-            setTitle(fileName)
-            setDescription("Downloading file...")
-            setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-
-            setAllowedOverMetered(true)
-            setAllowedOverRoaming(true)
-
-            // Save in Downloads folder
-            setDestinationInExternalPublicDir(
-                Environment.DIRECTORY_DOWNLOADS,
-                fileName
-            )
-        }
-
-        val downloadManager =
-            context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-
-        downloadManager.enqueue(request)
-    }
-
 }
-
+expect class FileDownloader {
+    fun downloadFile(
+        fileName: String,
+        url: String
+    )
+}
 
 
 

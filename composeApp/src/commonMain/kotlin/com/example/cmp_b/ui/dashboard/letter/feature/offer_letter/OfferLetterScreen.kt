@@ -43,28 +43,24 @@ import androidx.compose.ui.unit.dp
 import com.example.cmp_b.navigation.AppState
 import com.example.cmp_b.ui.components.AppSimpleTopBar
 import com.example.cmp_b.ui.theme.AppGradients
+import com.example.cmp_b.ui.theme.BackgroundLight
+import com.example.cmp_b.ui.theme.BrightRed
+import com.example.cmp_b.ui.theme.Cerenade
+import com.example.cmp_b.ui.theme.Congress_blue
+import com.example.cmp_b.ui.theme.FunGreen_50
+import com.example.cmp_b.ui.theme.HintOfGreen
+import com.example.cmp_b.ui.theme.IndoShine
+import com.example.cmp_b.ui.theme.JapaneseLauren
+import com.example.cmp_b.ui.theme.Mercury
+import com.example.cmp_b.ui.theme.Pippin_15
+import com.example.cmp_b.ui.theme.RedBerry
 import com.example.cmp_b.ui.theme.Silver
+import com.example.cmp_b.ui.theme.Solitude
+import com.example.cmp_b.ui.theme.TextStyles
 
-import com.example.digi_trac_v5.ui.presentation.screens.dashboard.features.offer_letter.vm.OfferLetterUiState
-import com.example.digi_trac_v5.ui.presentation.screens.dashboard.features.offer_letter.vm.OfferLetterViewModel
-import com.example.digi_trac_v5.ui.presentation.screens.dashboard.features.offer_letter.vm.OfferStatus
-import com.example.digi_trac_v5.ui.theme.AppGradients
-import com.example.digi_trac_v5.ui.theme.BackgroundLight
-import com.example.digi_trac_v5.ui.theme.BrightRed
-import com.example.digi_trac_v5.ui.theme.Cerenade
-import com.example.digi_trac_v5.ui.theme.Congress_blue
-import com.example.digi_trac_v5.ui.theme.FunGreen_50
-import com.example.digi_trac_v5.ui.theme.HintOfGreen
-import com.example.digi_trac_v5.ui.theme.IndoShine
-import com.example.digi_trac_v5.ui.theme.JapaneseLauren
-import com.example.digi_trac_v5.ui.theme.Mercury
-import com.example.digi_trac_v5.ui.theme.Pippin_15
-import com.example.digi_trac_v5.ui.theme.RedBerry
-import com.example.digi_trac_v5.ui.theme.Silver
-import com.example.digi_trac_v5.ui.theme.Solitude
-import com.example.digi_trac_v5.ui.theme.TextStyles
-import com.example.digi_trac_v5.util.AppUtils
-import com.github.gcacace.signaturepad.views.SignaturePad
+import com.example.cmp_b.ui.dashboard.letter.feature.offer_letter.vm.OfferLetterUiState
+import com.example.cmp_b.ui.dashboard.letter.feature.offer_letter.vm.OfferLetterViewModel
+import com.example.cmp_b.ui.dashboard.letter.feature.offer_letter.vm.OfferStatus
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -75,7 +71,6 @@ fun OfferLetterScreen(
     val offers by viewModel.offers.collectAsState()
     val showSignature = viewModel.showSignatureSheet
     val showReason = viewModel.showReasonSheet
-    val context = LocalContext.current
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -101,12 +96,7 @@ fun OfferLetterScreen(
                     OfferLetterCard(
                         offer = offer,
                         onDownloadClick = {
-                            AppUtils.downloadFile(
-                                context = context,
-                                fileName = "Offer_Letter.pdf",
-                                url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
-                            )
-                            Log.d("DOWNLOAD", "Downloading ${offer.pdfUrl}")
+                            // TODO: Implement platform-specific download
                         },
                         onAccept = { viewModel.onAcceptClick(offer.id) },
                         onReject = { viewModel.onRejectClick(offer.id) }
@@ -149,8 +139,20 @@ fun OfferLetterCard(
         border = BorderStroke(0.7.dp, Mercury)
     ) {
 
-        AppCardWithStrip {
-            CardHeader(title = offer.companyName, status = offer.status)
+        Column {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = offer.companyName,
+                    style = TextStyles.InterSemiBoldM
+                )
+                StatusChip(status = offer.status)
+            }
             HorizontalDivider(
                 modifier = Modifier.padding(horizontal = 16.dp),
                 thickness = 0.7.dp,
@@ -159,7 +161,7 @@ fun OfferLetterCard(
         }
 
 
-        Row(modifier = background(BackgroundLight)) {
+        Row(modifier = Modifier.background(BackgroundLight)) {
             Column(
                 modifier = Modifier
                     .weight(1f)
@@ -172,18 +174,33 @@ fun OfferLetterCard(
                         .padding(horizontal = 16.dp, vertical = 12.dp)
                 ) {
 
-                    AppKeyValue(
-                        key = "Assistant Manager",
-                        value = offer.candidateName,
-                        modifier = Modifier.weight(1f),
-                    )
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = "Role",
+                            style = TextStyles.InterRegularXS,
+                            color = Color.Gray
+                        )
+                        Text(
+                            text = offer.role,
+                            style = TextStyles.InterRegularS
+                        )
+                    }
 
-                    AppKeyValue(
-                        key = "Joining Date",
-                        value = offer.joiningDate,
+                    Column(
                         modifier = Modifier.weight(1f),
-                        align = TextAlign.End
-                    )
+                        horizontalAlignment = Alignment.End
+                    ) {
+                        Text(
+                            text = "Joining Date",
+                            style = TextStyles.InterRegularXS,
+                            color = Color.Gray
+                        )
+                        Text(
+                            text = offer.joiningDate,
+                            style = TextStyles.InterRegularS,
+                            textAlign = TextAlign.End
+                        )
+                    }
                 }
                 Row(
                     modifier = Modifier
@@ -194,12 +211,7 @@ fun OfferLetterCard(
                         .padding(horizontal = 16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Icon(
-                        painterResource(R.drawable.png_myletters),
-                        contentDescription = null,
-                        tint = Color.Unspecified,
-                        modifier = Modifier.size(16.dp)
-                    )
+                    // Icon placeholder for multiplatform compatibility
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         "Offer Letter.pdf",
@@ -208,12 +220,7 @@ fun OfferLetterCard(
                         overflow = TextOverflow.Ellipsis
                     )
                     Spacer(modifier = Modifier.width(4.dp))
-                    Icon(
-                        painterResource(R.drawable.ic_download_svg),
-                        contentDescription = null,
-                        modifier = Modifier.size(16.dp),
-                        tint = Color.Unspecified
-                    )
+                    // Download icon placeholder for multiplatform compatibility
                 }
 
                 // 🔹 Buttons
@@ -282,7 +289,7 @@ fun StatusChip(status: OfferStatus) {
     }
 
     Box(
-        modifier = background(bgColor, RoundedCornerShape(16.dp))
+        modifier = Modifier.background(bgColor, RoundedCornerShape(16.dp))
             .padding(horizontal = 10.dp, vertical = 4.dp)
     ) {
         Text(
@@ -297,106 +304,24 @@ fun StatusChip(status: OfferStatus) {
 fun SignatureBottomSheet(
     show: Boolean,
     onDismiss: () -> Unit,
-    onSubmit: (Bitmap?) -> Unit,
+    onSubmit: () -> Unit,
 ) {
-
-    var isSigned by remember { mutableStateOf(false) }
-    var signaturePadRef by remember { mutableStateOf<SignaturePad?>(null) }
-
+    // TODO: Implement platform-specific signature pad
+    // For now, just show a simple confirmation dialog
     AppBottomSheet(show = show, onDismiss = onDismiss) {
-
         Column(modifier = Modifier.padding(16.dp)) {
-
-            // 🔹 Header
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    "Add your signature",
-                    style = TextStyles.InterSemiBoldM
-                )
-
-                Icon(
-                    painter = painterResource(R.drawable.ic_close_fill_gray),
-                    contentDescription = "Close",
-                    tint = Color.Unspecified,
-                    modifier = Modifier
-                        .size(24.dp)
-                        .clip(CircleShape)
-                        .clickable { onDismiss() }
-                        .padding(2.dp)
-                )
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            AndroidView(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(140.dp)
-                    .border(
-                        width = 1.dp,
-                        color = Silver,
-                        shape = RoundedCornerShape(12.dp)
-                    )
-                    .background(Color.White, RoundedCornerShape(12.dp)),
-                factory = { context ->
-                    SignaturePad(context, null).apply {
-
-                        setBackgroundColor(android.graphics.Color.WHITE)
-                        setPenColor(android.graphics.Color.BLACK)
-
-                        setMinWidth(5f)
-                        setMaxWidth(10f)
-
-                        setOnSignedListener(object : SignaturePad.OnSignedListener {
-                            override fun onStartSigning() {}
-
-                            override fun onSigned() {
-                                isSigned = true
-                            }
-
-                            override fun onClear() {
-                                isSigned = false
-                            }
-                        })
-
-                        signaturePadRef = this
-                    }
-                }
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-
             Text(
-                "By adding your signature here, you are accepting our terms and conditions.",
-                style = TextStyles.InterRegularXS
+                "Add your signature",
+                style = TextStyles.InterSemiBoldM
             )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            if (isSigned) {
-                Text(
-                    text = "Clear",
-                    color = Congress_blue,
-                    style = TextStyles.InterRegularS,
-                    modifier = Modifier
-                        .clickable {
-                            signaturePadRef?.clear()
-                        }
-                )
-            }
-
             Spacer(modifier = Modifier.height(16.dp))
-
+            Text(
+                "Signature pad not available in common code. Implement platform-specific version.",
+                style = TextStyles.InterRegularS
+            )
+            Spacer(modifier = Modifier.height(16.dp))
             Button(
-                onClick = {
-                    val bitmap = signaturePadRef?.signatureBitmap
-                    onSubmit(bitmap)
-                },
-                enabled = isSigned,
+                onClick = onSubmit,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(48.dp),
@@ -415,33 +340,25 @@ fun ReasonBottomSheet(
     onDismiss: () -> Unit,
     onSubmit: (String) -> Unit,
 ) {
-
     var reason by remember { mutableStateOf("") }
 
-
-
     AppBottomSheet(show = show, onDismiss = onDismiss) {
-
         Column(modifier = Modifier.padding(16.dp)) {
-            // Header
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            AppLabelWithContainer(
-                labelText = "Reason to rejection",
-                onValueChange = {},
-                value = "",
-                description = "Enter Reason here"
+            Text(
+                "Reason for rejection",
+                style = TextStyles.InterSemiBoldM
             )
-
+            Spacer(modifier = Modifier.height(16.dp))
+            // TODO: Replace with proper text field component
+            Text(
+                "Enter reason here",
+                style = TextStyles.InterRegularS,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Solitude, RoundedCornerShape(8.dp))
+                    .padding(12.dp)
+            )
             Spacer(modifier = Modifier.height(24.dp))
-
             Button(
                 onClick = { onSubmit(reason) },
                 modifier = Modifier
