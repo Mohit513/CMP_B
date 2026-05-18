@@ -223,7 +223,7 @@ fun OfferLetterCard(
                     // Download icon placeholder for multiplatform compatibility
                 }
 
-                // 🔹 Buttons
+
                 if (offer.status == OfferStatus.AWAITING) {
 
                     Spacer(modifier = Modifier.height(12.dp))

@@ -13,6 +13,8 @@ import com.example.cmp_b.ui.auth.LoginScreen
 import com.example.cmp_b.ui.auth.LoginViewModel
 import com.example.cmp_b.ui.dashboard.DashboardViewModel
 import com.example.cmp_b.ui.dashboard.DigiDashboardScreen
+import com.example.cmp_b.ui.dashboard.document_details.DocumentDetailsScreen
+import com.example.cmp_b.ui.dashboard.document_details.vm.DocumentDetailsViewModel
 import com.example.cmp_b.ui.dashboard.letter.vm.MyLetterViewModel
 import com.example.cmp_b.ui.dashboard.onboarding.DigiOnboardingScreen
 import com.example.cmp_b.ui.dashboard.onboarding.sub_screens.aadhar.AadharDetailsScreen
@@ -28,6 +30,7 @@ import com.example.cmp_b.ui.post_list.PostListScreen
 import com.example.cmp_b.ui.post_list.PostViewModel
 import com.example.cmp_b.ui.dashboard.letter.MyLetterScreen
 import com.example.cmp_b.ui.dashboard.letter.feature.other_letter.vm.OtherLetterViewModel
+import com.example.cmp_b.ui.dashboard.notification.NotificationScreen
 import org.koin.compose.koinInject
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -108,6 +111,13 @@ fun NavGraph(appState: AppState) {
             composable(NavRoutes.OtherLetterScreen.route){
                 val viewModel: OtherLetterViewModel = koinViewModel()
                 com.example.cmp_b.ui.dashboard.letter.feature.other_letter.OtherLetterScreen(appState, viewModel)
+            }
+            composable(NavRoutes.DocumentDetailsScreen.route){
+                val viewModel: DocumentDetailsViewModel = koinViewModel()
+                DocumentDetailsScreen(appState, viewModel)
+            }
+            composable(NavRoutes.NotificationScreen.route){
+                NotificationScreen(appState)
             }
         }
     }

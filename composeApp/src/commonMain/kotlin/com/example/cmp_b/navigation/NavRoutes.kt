@@ -27,6 +27,9 @@ sealed class NavRoutes(val route: String) {
     object IncrementLetterScreen : NavRoutes("increment_letter")
     object FormSixteenScreen : NavRoutes("form_16")
     object OtherLetterScreen : NavRoutes("other_letter")
+
+    //document details screen routes
+    object AddDocumentBottomSheet : NavRoutes("add_document_bottom_sheet")
 }
 
 sealed class NavigationEvent {
